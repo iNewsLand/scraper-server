@@ -6,6 +6,9 @@ RUN set -e; \
   && apk del libressl-dev \
   && apk add openssl-dev libxml2-dev libxslt-dev
 
+RUN mkdir /logs
+RUN mkdir /eggs
+
 RUN pip install --upgrade pip
 
 RUN pip install scrapyd
