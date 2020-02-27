@@ -4,9 +4,10 @@ RUN mkdir /logs
 RUN mkdir /eggs
 
 RUN pip install --upgrade pip
+RUN pip install scrapyd
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-RUN pip install scrapyd
 
 COPY scrapyd.conf .
 
