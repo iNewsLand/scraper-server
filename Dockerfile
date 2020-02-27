@@ -1,15 +1,10 @@
-FROM python:alpine3.10
-
-RUN set -e; \
-  apk update \
-  && apk add --virtual .build-deps gcc python3-dev musl-dev libffi-dev \
-  && apk del libressl-dev \
-  && apk add openssl-dev libxml2-dev libxslt-dev
+FROM inewsland/python:3-alpine
 
 RUN mkdir /logs
 RUN mkdir /eggs
 
 RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 RUN pip install scrapyd
 
